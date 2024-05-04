@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"flag"
+	markdown "github.com/MichaelMure/go-term-markdown"
 )
 
 type Repository struct {
@@ -59,7 +60,9 @@ func main() {
 	}
 
 	// Print result
-	fmt.Println(string(data))
+	dataStr := string(data)
+
+	fmt.Println(string(markdown.Render(dataStr, 80, 6)))
 
 	return
 }
