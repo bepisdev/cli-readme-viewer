@@ -6,17 +6,28 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"flag"
 )
 
 type Repository struct {
 	Content string `json:"content"`
 }
 
-func main() {
-	// FIXME: Replace this with CLI flags later
-	repoOwner := "joshburnsxyz"
-	repoName := "protorec"
+var (
+	repoOwner string
+	repoName string
+)
 
+// Initialize flags
+func init()  {
+	flag.StringVar(&repoOwner, "owner", "", "The name of the account that owns the repo")
+	flag.StringVar(&repoName, "name", "", "The name of the repo itself")
+}
+
+func main() {
+
+	flag.Parse()
+	
 	// Perform GET request to github API for repos readme file.
 	resp, err := http.Get(fmt.Sprintf("https://api.github.com/repos/%s/%s/readme",repoOwner,repoName))
 
