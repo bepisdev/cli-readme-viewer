@@ -9,7 +9,7 @@ the repo you want to read and `-name` being the repo name itself for example, to
 file to render in your terminal you would run the following command.
 
 ```
-$ crv -owner joshburnsxyz -name cli-readme-viewer
+$ crv -owner bepisdev -name cli-readme-viewer
 ```
 
 The program will render out the markdown of the README file in a terminal readable format.
